@@ -7,266 +7,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --background: #f9f9f9;
-      --surface-low: #f3f3f3;
-      --text: #1a1c1c;
-      --muted: #444748;
-      --line: #c4c7c7;
-      --secondary: #46617c;
-      --primary: #0b0c0c;
-      --container: 1120px;
-      --page-pad: 32px;
-      --main-col: 704px;
-      --side-col: 320px;
-      --col-gap: 32px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, Arial, "Noto Sans TC", sans-serif;
-      color: var(--text);
-      background: var(--background);
-    }
-
-    .site {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .header {
-      max-width: var(--container);
-      width: 100%;
-      margin: 0 auto;
-      padding: 28px var(--page-pad);
-      display: flex;
-      align-items: center;
-    }
-
-    .brand {
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .layout {
-      max-width: var(--container);
-      width: 100%;
-      margin: 0 auto;
-      padding: 32px var(--page-pad) 80px;
-      display: grid;
-      grid-template-columns: var(--main-col) var(--side-col);
-      gap: var(--col-gap);
-      flex-grow: 1;
-    }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .rule {
-      height: 1px;
-      background: var(--line);
-      margin-bottom: 32px;
-    }
-
-    .post-list { display: grid; gap: 48px; }
-
-    .post-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .post h1 {
-      margin: 0 0 12px;
-      font-family: "Source Serif 4", Georgia, "Noto Serif TC", serif;
-      font-size: 32px;
-      line-height: 1.25;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .post h1 a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .post h1 a:hover { color: var(--secondary); }
-
-    .post p {
-      max-width: 720px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .sidebar {
-      display: grid;
-      align-content: start;
-      gap: 40px;
-    }
-
-    .profile-card {
-      background: var(--surface-low);
-      border-radius: 16px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-      padding: 32px;
-      text-align: center;
-      position: sticky;
-      top: 24px;
-    }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 24px;
-      border: 4px solid var(--background);
-    }
-
-    .profile-card h2 {
-      margin: 0 0 4px;
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .role {
-      margin-bottom: 16px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .bio {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .topics h3 {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .topic-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .topic-list span {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 12px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      background: transparent;
-    }
-
-    .footer { border-top: 1px solid var(--line); }
-
-    .footer-inner {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 28px var(--page-pad);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 800px) {
-      :root { --page-pad: 20px; }
-      .header { padding: 24px var(--page-pad); }
-      .layout { grid-template-columns: 1fr; padding: 24px var(--page-pad) 64px; }
-      .post h1 { font-size: 28px; }
-      .profile-card { position: static; }
-      .footer-inner { padding: 24px var(--page-pad); flex-direction: column; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
-  <div class="site">
+  <div class="home-site">
     <header class="header">
       <a class="brand" href="/">Sirius Chen</a>
     </header>
 
-    <main class="layout">
+    <main class="home-layout">
       <section>
         <div class="section-label">Latest Writing</div>
         <div class="rule"></div>
 
         <div class="post-list">
           <article class="post">
-            <div class="post-meta">
-              <span>Experience</span><span>·</span><span>Mar 16, 2026</span>
-            </div>
+            <div class="post-meta"><span>Experience</span><span>·</span><span>Mar 16, 2026</span></div>
             <h1><a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a></h1>
             <p>這篇文章是來幫原文做宣傳，不知道為什麼問了兩隻 AI 都給出要付錢的答案。</p>
           </article>
 
           <article class="post">
-            <div class="post-meta">
-              <span>Productivity</span><span>·</span><span>Aug 21, 2025</span>
-            </div>
+            <div class="post-meta"><span>Productivity</span><span>·</span><span>Aug 21, 2025</span></div>
             <h1><a href="/articles/outlook-category-search.html">被消失的分類搜尋功能：新版 Outlook 怎麼找回標記Category 郵件？</a></h1>
             <p>新版 Outlook 中分類搜尋功能不明顯，這篇整理如何用「最愛」與左側分類清單找回類似操作。</p>
           </article>
 
           <article class="post">
-            <div class="post-meta">
-              <span>PM</span><span>·</span><span>Feb 27, 2024</span>
-            </div>
+            <div class="post-meta"><span>PM</span><span>·</span><span>Feb 27, 2024</span></div>
             <h1><a href="/articles/pm-basic-mindset.html">剛入門軟體業的 PM 可具備的基礎心法</a></h1>
             <p>寫給剛踏進軟體業的 PM 們，使用一般口語方式整理常用概念，加速理解軟體開發基本語言。</p>
           </article>
 
           <article class="post">
-            <div class="post-meta">
-              <span>Productivity</span><span>·</span><span>Dec 27, 2023</span>
-            </div>
+            <div class="post-meta"><span>Productivity</span><span>·</span><span>Dec 27, 2023</span></div>
             <h1><a href="/articles/heptabase-benefits.html">Heptabase優點</a></h1>
             <p>整理 Heptabase 在操作性、功能性、日誌、白板、卡片與標籤管理上的幾個有感優點。</p>
           </article>
 
           <article class="post">
-            <div class="post-meta">
-              <span>Productivity</span><span>·</span><span>Dec 26, 2023</span>
-            </div>
+            <div class="post-meta"><span>Productivity</span><span>·</span><span>Dec 26, 2023</span></div>
             <h1><a href="/articles/heptabase-help.html">Heptabase能幫助你什麼？</a></h1>
             <p>Heptabase 像是一個儲思盆，把散亂資訊整合到卡片、日誌、白板與標籤中，讓想法更容易被整理成有用資料。</p>
           </article>
@@ -283,21 +63,13 @@
 
         <section class="topics">
           <h3>Curated Topics</h3>
-          <div class="topic-list">
-            <span>UX</span>
-            <span>PM</span>
-            <span>Tech Writing</span>
-            <span>Storage</span>
-          </div>
+          <div class="topic-list"><span>UX</span><span>PM</span><span>Tech Writing</span><span>Storage</span></div>
         </section>
       </aside>
     </main>
 
     <footer class="footer">
-      <div class="footer-inner">
-        <span>Sirius Chen</span>
-        <span>© 2026. Built for notes, systems, and practical writing.</span>
-      </div>
+      <div class="footer-inner"><span>Sirius Chen</span><span>© 2026. Built for notes, systems, and practical writing.</span></div>
     </footer>
   </div>
 </body>
