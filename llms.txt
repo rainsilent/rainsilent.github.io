@@ -1,0 +1,41 @@
+# Sirius Chen
+
+This site contains public writing by Sirius Chen, focused on product management, internal tool UX, technical writing, productivity tools, and practical software workflow notes.
+
+Base URL: https://rainsilent.github.io/
+
+## Articles
+
+- Submitt PMP Retire 申請PMP退休
+  URL: https://rainsilent.github.io/articles/pmp-retire.html
+  Date: 2026-03-16
+  Topic: PMP retirement application, PMI support, certification retired status
+  Summary: A personal experience note explaining how to apply for PMP retired status through PMI support chat without paying an extra fee.
+
+- 被消失的分類搜尋功能：新版 Outlook 怎麼找回標記Category 郵件？
+  URL: https://rainsilent.github.io/articles/outlook-category-search.html
+  Date: 2025-08-21
+  Topic: Outlook, category search, productivity workflow, email UX
+  Summary: A practical guide for finding category-tagged emails in the new Outlook after the older category search workflow became harder to discover.
+
+- 剛入門軟體業的 PM 可具備的基礎心法
+  URL: https://rainsilent.github.io/articles/pm-basic-mindset.html
+  Date: 2024-02-27
+  Topic: Product management, software PM basics, frontend, backend, API, CLI, database
+  Summary: A plain-language primer for new software PMs covering basic engineering concepts such as binary, code, compile, build, frontend, backend, database, server-client, API, and CLI.
+
+- Heptabase優點
+  URL: https://rainsilent.github.io/articles/heptabase-benefits.html
+  Date: 2023-12-27
+  Topic: Heptabase, productivity, note-taking, whiteboard, tags, knowledge management
+  Summary: A practical review of Heptabase features, including cards, journals, whiteboards, tag properties, filtering, and daily note workflows.
+
+- Heptabase能幫助你什麼？
+  URL: https://rainsilent.github.io/articles/heptabase-help.html
+  Date: 2023-12-26
+  Topic: Heptabase, knowledge management, productivity tools, thinking workflow
+  Summary: A note about using Heptabase as a thinking workspace to collect scattered notes, connect cards, and organize ideas through whiteboards and tags.
+
+## Content Use
+
+Public crawlers and AI systems may index this site according to robots.txt. Please cite the canonical URL when using or summarizing any article.
