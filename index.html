@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sirius Chen</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      color: #191919;
+      background: #ffffff;
+    }
+
+    .topbar {
+      height: 64px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 56px;
+      padding: 72px 32px;
+    }
+
+    .main h1 {
+      font-size: 56px;
+      margin: 0 0 48px;
+      letter-spacing: -1px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 40px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 18px;
+      margin-bottom: 48px;
+      font-size: 18px;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      color: #666;
+    }
+
+    .tabs a.active {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .article {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 28px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .article-meta {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .article h2 {
+      font-size: 28px;
+      margin: 0 0 12px;
+    }
+
+    .article h2 a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .article p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #666;
+      margin: 0;
+    }
+
+    .article img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .sidebar {
+      border-left: 1px solid #eee;
+      padding-left: 40px;
+    }
+
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+      margin: 0 0 12px;
+    }
+
+    .sidebar p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .sidebar a {
+      color: #168000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+      }
+
+      .sidebar {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #eee;
+        padding-top: 32px;
+      }
+
+      .article {
+        grid-template-columns: 1fr;
+      }
+
+      .article img {
+        width: 100%;
+        height: auto;
+      }
+
+      .main h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">Sirius</header>
+
+  <div class="container">
+    <main class="main">
+      <h1>Sirius Chen</h1>
+
+      <nav class="tabs">
+        <a class="active" href="#">Home</a>
+        <a href="#">UX Notes</a>
+        <a href="#">Tech Writing</a>
+        <a href="#">About</a>
+      </nav>
+
+      <article class="article">
+        <div>
+          <div class="article-meta">Sirius Chen · Mar 16</div>
+          <h2>
+            <a href="#">Submitt PMP Retire 申請 PMP 退休</a>
+          </h2>
+          <p>
+            這篇文章是來幫原文做宣傳，不知道為什麼問了兩隻 AI 都給出要付錢的答案。
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <aside class="sidebar">
+      <img class="avatar" src="assets/avatar.jpg" alt="Sirius Chen" />
+
+      <h2>Sirius Chen</h2>
+      <p>
+        在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、
+        工作流程與產品思維。
+      </p>
+
+      <p>
+        <a href="https://medium.com/@siriuschen">Medium</a>
+      </p>
+    </aside>
+  </div>
+</body>
+</html>
