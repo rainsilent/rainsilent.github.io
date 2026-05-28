@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>剛入門軟體業的 PM 可具備的基礎心法 | Sirius Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #f9f9f9;
+      --surface: #ffffff;
+      --surface-low: #f3f3f3;
+      --text: #1a1c1c;
+      --muted: #444748;
+      --line: #c4c7c7;
+      --secondary: #46617c;
+      --primary: #0b0c0c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    .header {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 32px 88px;
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 300px;
+      gap: 56px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover { color: var(--secondary); }
+
+    .meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 32px;
+      font-family: "Source Serif 4", Georgia, "Noto Serif TC", serif;
+      font-size: 48px;
+      line-height: 1.16;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+    }
+
+    article {
+      font-family: "Source Serif 4", Georgia, "Noto Serif TC", serif;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    article p { margin: 0 0 28px; }
+
+    article h2 {
+      margin: 42px 0 14px;
+      font-family: Inter, Arial, "Noto Sans TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    blockquote {
+      margin: 0 0 36px;
+      padding: 24px 28px;
+      background: var(--surface-low);
+      border-left: 4px solid var(--secondary);
+      border-radius: 12px;
+      color: var(--muted);
+      font-family: Inter, Arial, "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    figure {
+      margin: 44px 0;
+      padding: 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: Inter, Arial, sans-serif;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .aside-block {
+      position: sticky;
+      top: 28px;
+      display: grid;
+      gap: 36px;
+    }
+
+    .topics h3,
+    .recent h3 {
+      margin: 0 0 16px;
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .topic-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .topic-list span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .recent a {
+      display: block;
+      color: var(--primary);
+      text-decoration: none;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .recent a:hover { color: var(--secondary); }
+
+    .recent p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .author-card {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .author-inner {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      background: var(--surface-low);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .author-inner img {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--background);
+    }
+
+    .author-inner h2 {
+      margin: 0 0 4px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 24px;
+    }
+
+    .author-inner .role {
+      margin-bottom: 10px;
+      color: var(--secondary);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .author-inner p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .footer { border-top: 1px solid var(--line); }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .header { padding: 24px 20px; }
+      .page { display: block; padding: 24px 20px 72px; }
+      h1 { font-size: 36px; }
+      article { font-size: 18px; }
+      .aside { display: none; }
+      .author-inner { flex-direction: column; text-align: center; }
+      .footer-inner { padding: 24px 20px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="/">Sirius Chen</a>
+  </header>
+
+  <main class="page">
+    <div>
+      <a class="back-link" href="/">← Back to Writing</a>
+
+      <div class="meta"><span>PM</span><span>·</span><span>Feb 27, 2024</span></div>
+      <h1>剛入門軟體業的 PM 可具備的基礎心法</h1>
+
+      <article>
+        <blockquote>本文是寫給剛踏進軟體業的 PM 們可能需要瞭解的內容，將常用的概念使用一般口語方式講述，加速瞭解概念。需要更深入研究可自行 google 或問 Gemini、ChatGPT。</blockquote>
+
+        <p>本文是寫給剛踏進軟體業的PM們可能需要瞭解的內容，將常用的概念使用一般口語方式講述，加速瞭解概念。需要更深入研究可自行google或問Gemini、ChatGPT。</p>
+
+        <h2>計算機（電腦）基礎原理</h2>
+        <p>計算機只看的懂0和1，所有資料，包括文字、圖片、影片等，都是以0和1的形式儲存的，甚至於跟電腦溝通的語言，轉換到最底層時，電腦的理解也都是靠0、1，而這就所謂的二進位。</p>
+
+        <figure>
+          <img src="https://miro.medium.com/v2/resize:fit:1100/1*nc0bPy0GWy6sLohlBAvIqQ.png" alt="Binary conversion" />
+          <figcaption>Binary conversion</figcaption>
+        </figure>
+
+        <h2>程式碼</h2>
+        <p>人類與電腦溝通的語言，告訴電腦要如何執行特定的任務， 常見的程式語言包括Java, C#, C++, Python等，基本上PM是不會需要自己動手寫的，寫程式的事情是由工程師完成，但需要了解功能需求的流程跟邏輯，才能有辦法跟工程師溝通。</p>
+
+        <h2>Compile</h2>
+        <p>將程式碼透過編譯器，轉換為電腦可以理解的機器碼（二進位檔案）的過程，像是C, C++這類編譯式語言，就需要經過compile才可以執行。而像是Python, javascript這種直譯式語言，就可以直接被使用（像是瀏覽器可以直接執行）。</p>
+
+        <h2>Build</h2>
+        <p>將編譯好的機器碼與其他相關的檔案（例如資源檔案、庫檔案等）打包成可執行檔案的過程。Build通常由建置工具（build tool）來完成，可能聽到的口語是「Build image」，也就是build出一個映像檔(image)，可以拿這個image去安裝程式。</p>
+
+        <h2>應用程式（Application, App）</h2>
+        <p>用於執行特定任務的軟體，例如文書處理、影音播放、遊戲等。 應用程式可以分為本地應用程式（單機版）和Web應用程式（網路版）。 本地應用程式需要安裝在電腦上才能使用，而Web應用程式可以直接在瀏覽器中使用。</p>
+
+        <h2>資料庫（DB）</h2>
+        <p>用於儲存和管理資料的軟體。資料庫可以分為結構化資料庫和非結構化資料庫。 結構化資料庫中的資料被組織成表格的形式，而非結構化資料庫中的資料則沒有固定的格式。</p>
+        <p>資料庫具象化就是一個excel，來儲存資料，只是他比excel大很多、複雜很多。</p>
+
+        <h2>前端（Frontend）- 後端（Backend）</h2>
+        <p>前端是指應用程式使用者可以直接看到的和操作的部分，例如網頁、介面等。 前端工程師們撰寫的會是使用者可以看見的內容，與UI設計師合作，將設計出的畫面實踐，也會撰寫javascript來實踐網頁上的動畫。 如涉及資料的部分，則會與後端工程師串接資料。</p>
+        <p>後端是指應用程式中負責處理資料和邏輯的部分，例如伺服器、資料庫等。 後端工程師除了撰寫上述內容，亦會與前端工程師合作，將資料透過如API的方式，提供給前端讀取。</p>
+
+        <h2>Server — Client</h2>
+        <p>Server（伺服器）和Client（客戶端）是兩種不同的電腦角色。</p>
+        <p>伺服器提供服務，而客戶端則使用這些服務。</p>
+        <p>在Web應用程式中，伺服器通常用於儲存資料和處理邏輯，而客戶端則用於顯示網頁和接收使用者輸入。</p>
+        <p>具體來說，會在實體的伺服器上架設Web service（像IIS, Apache），來提供應用程式（Server） 使用者就可以透過瀏覽器使用這個web應用程式，而這裡就會稱呼為Client。</p>
+
+        <h2>API, CLI, etc.</h2>
+        <p>結尾的”I”，都是指”Interface”。 那什麼是Interface呢？ 舉例：當前端畫面上需要特定資料（比方說使用者的生日時），就需要提供使用者帳號給後端，後端再依照使用者帳號查到的使用者生日，回傳給前端，讓前端可以呈現在畫面上。 而前、後端必須先講好，前端用什麼格式跟後端講，後端把資料回傳時要長什麼樣子，這就是interface的概念。</p>
+        <p>這樣講好規則後，前後端就不用每次要呼叫都要改。</p>
+        <p>現在最常見的就是API（Application Programming Interface），其實就是一種上面舉例的interface，允許不同的應用程式之間進行溝通，如網頁應用程式與後端的溝通。</p>
+        <p>CLI（Command-Line Interface），這是直接在電腦上的終端機（Terminal）下指令跟電腦溝通的方式（因為以前沒有圖形化介面）。如果要對電腦（機器）做一些進階操作，也會直接使用CLI做操作。</p>
+      </article>
+
+      <section class="author-card">
+        <div class="author-inner">
+          <img src="https://avatars.githubusercontent.com/u/31679797?v=4" alt="Sirius Chen" />
+          <div>
+            <h2>Sirius Chen</h2>
+            <div class="role">Product Manager</div>
+            <p>在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、工作流程與產品思維。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <div class="aside-block">
+        <section class="topics">
+          <h3>Curated Topics</h3>
+          <div class="topic-list">
+            <span>UX</span>
+            <span>PM</span>
+            <span>Tech Writing</span>
+            <span>Storage</span>
+          </div>
+        </section>
+
+        <section class="recent">
+          <h3>Recent Articles</h3>
+          <a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a>
+          <p>Mar 16 · 2 min read</p>
+          <br />
+          <a href="/articles/pm-basic-mindset.html">剛入門軟體業的 PM 可具備的基礎心法</a>
+          <p>Feb 27, 2024 · 4 min read</p>
+        </section>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Sirius Chen</span>
+      <span>© 2026. Built for notes, systems, and practical writing.</span>
+    </div>
+  </footer>
+</body>
+</html>
