@@ -45,7 +45,6 @@
       padding: 28px var(--page-pad);
       display: flex;
       align-items: center;
-      justify-content: space-between;
     }
 
     .brand {
@@ -55,25 +54,6 @@
       color: var(--primary);
       text-decoration: none;
       letter-spacing: -0.02em;
-    }
-
-    .nav {
-      display: flex;
-      gap: 28px;
-      font-size: 15px;
-    }
-
-    .nav a {
-      color: var(--muted);
-      text-decoration: none;
-      padding-bottom: 6px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav a.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      font-weight: 500;
     }
 
     .layout {
@@ -232,7 +212,6 @@
     @media (max-width: 800px) {
       :root { --page-pad: 20px; }
       .header { padding: 24px var(--page-pad); }
-      .nav { display: none; }
       .layout { grid-template-columns: 1fr; padding: 24px var(--page-pad) 64px; }
       .post h1 { font-size: 28px; }
       .profile-card { position: static; }
@@ -244,9 +223,6 @@
   <div class="site">
     <header class="header">
       <a class="brand" href="/">Sirius Chen</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a class="active" href="/">Writing</a>
-      </nav>
     </header>
 
     <main class="layout">
