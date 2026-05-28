@@ -5,151 +5,320 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sirius Chen</title>
   <style>
+    :root {
+      --bg: #f8f9ff;
+      --panel: #eff4ff;
+      --panel-strong: #e5eeff;
+      --text: #0b1c30;
+      --muted: #43474c;
+      --line: #c4c6cd;
+      --accent: #162839;
+      --accent-soft: #456179;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, "Noto Sans TC", sans-serif;
-      color: #191919;
-      background: #ffffff;
+      color: var(--text);
+      background: var(--bg);
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
-      padding: 72px 32px;
-    }
-
-    .main h1 {
-      font-size: 56px;
-      margin: 0 0 48px;
-      letter-spacing: -1px;
-    }
-
-    .tabs {
+    .site {
+      min-height: 100vh;
       display: flex;
-      gap: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 18px;
-      margin-bottom: 48px;
-      font-size: 18px;
+      flex-direction: column;
     }
 
-    .tabs a {
+    .header {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 64px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
       text-decoration: none;
-      color: #000;
-      font-weight: 600;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
-    .article {
-      padding-bottom: 36px;
-      border-bottom: 1px solid #eee;
+    .mark {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
     }
 
-    .article-meta {
+    .mark span {
+      border: 2px solid var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 36px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding-bottom: 6px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav a.active {
+      font-weight: 700;
+      border-bottom-color: var(--text);
+    }
+
+    .layout {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 72px 64px 96px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 68px;
+    }
+
+    .section-label {
       font-size: 14px;
-      color: #666;
-      margin-bottom: 16px;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 44px;
     }
 
-    .article h2 {
-      font-size: 28px;
+    .post-list {
+      display: grid;
+      gap: 56px;
+    }
+
+    .post-meta {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .post-meta span {
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: none;
+      margin-left: 10px;
+    }
+
+    .post h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.18;
       margin: 0 0 12px;
+      letter-spacing: -0.03em;
     }
 
-    .article h2 a {
-      color: #111;
+    .post h1 a {
+      color: var(--text);
       text-decoration: none;
     }
 
-    .article h2 a:hover {
+    .post h1 a:hover {
       text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
-    .article p {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #666;
+    .post p {
+      max-width: 760px;
       margin: 0;
-      max-width: 720px;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 19px;
+      line-height: 1.7;
     }
 
-    .sidebar {
-      border-left: 1px solid #eee;
-      padding-left: 40px;
+    .profile-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
     }
 
     .avatar {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
+      width: 104px;
+      height: 104px;
+      border-radius: 8px;
       object-fit: cover;
-      margin-bottom: 24px;
-      display: block;
+      margin-bottom: 22px;
     }
 
-    .sidebar h2 {
-      font-size: 22px;
-      margin: 0 0 12px;
+    .profile-card h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: -0.03em;
     }
 
-    .sidebar p {
-      color: #666;
-      line-height: 1.6;
-      font-size: 16px;
+    .role {
+      margin: 8px 0 18px;
+      color: var(--accent-soft);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 800px) {
-      .container {
+    .bio {
+      margin: 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .topics {
+      margin-top: 52px;
+    }
+
+    .topics h3 {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .topic-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topic-list span {
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 5px 10px;
+      background: rgba(255, 255, 255, 0.45);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 64px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 24px 24px 16px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .layout {
         grid-template-columns: 1fr;
-        padding: 40px 24px;
+        padding: 48px 24px 72px;
       }
 
-      .sidebar {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid #eee;
-        padding-top: 32px;
+      .post h1 {
+        font-size: 27px;
       }
 
-      .main h1 {
-        font-size: 42px;
+      .footer-inner {
+        padding: 24px;
+        flex-direction: column;
+        gap: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <main class="main">
-      <h1>Sirius Chen</h1>
-
-      <nav class="tabs">
-        <a href="/">Home</a>
+  <div class="site">
+    <header class="header">
+      <a class="brand" href="/" aria-label="Sirius Chen home">
+        <span class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        Sirius Chen
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="/">Writing</a>
       </nav>
+    </header>
 
-      <article class="article">
-        <div>
-          <div class="article-meta">Sirius Chen · Mar 16</div>
-          <h2>
-            <a href="/articles/pmp-retire.html">Submitt PMP Retire 申請 PMP 退休</a>
-          </h2>
-          <p>
-            這篇文章是來幫原文做宣傳，不知道為什麼問了兩隻 AI 都給出要付錢的答案。
-          </p>
+    <main class="layout">
+      <section>
+        <div class="section-label">Latest Writing</div>
+
+        <div class="post-list">
+          <article class="post">
+            <div class="post-meta">Experience <span>· Mar 16 · 2 min read</span></div>
+            <h1><a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a></h1>
+            <p>這篇文章是來幫原文做宣傳，不知道為什麼問了兩隻 AI 都給出要付錢的答案。</p>
+          </article>
         </div>
-      </article>
+      </section>
+
+      <aside>
+        <section class="profile-card">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/31679797?v=4" alt="Sirius Chen" />
+          <h2>Sirius Chen</h2>
+          <div class="role">Product Manager</div>
+          <p class="bio">
+            在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、工作流程與產品思維。
+          </p>
+        </section>
+
+        <section class="topics">
+          <h3>Curated Topics</h3>
+          <div class="topic-list">
+            <span>UX</span>
+            <span>PM</span>
+            <span>Tech Writing</span>
+            <span>Storage</span>
+          </div>
+        </section>
+      </aside>
     </main>
 
-    <aside class="sidebar">
-      <img class="avatar" src="assets/avatar.png" alt="Sirius Chen" />
-
-      <h2>Sirius Chen</h2>
-      <p>
-        在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、
-        工作流程與產品思維。
-      </p>
-    </aside>
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>Sirius Chen</span>
+        <span>© 2026. Built for notes, systems, and practical writing.</span>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
