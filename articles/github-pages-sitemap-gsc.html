@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://avatars.githubusercontent.com https://miro.medium.com; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="description" content="GitHub Pages 預設網域上的 sitemap 一直被 Google Search Console 顯示無法讀取時，先不要一直改 sitemap。對頁面不多的個人站，可以先直接提交首頁。" />
+  <meta name="description" content="GitHub Pages 預設網域的 sitemap 在 Google Search Console 顯示無法讀取，甚至出現 URL_FETCH_STATUS_MISC_ERROR 時，問題可能不在檔案本身。" />
   <meta name="author" content="Sirius Chen" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="GitHub Pages 的 sitemap 一直被 Google Search Console 顯示無法讀取？先不用改了，問題不在你身上 | Sirius Chen" />
-  <meta property="og:description" content="如果 GitHub Pages 預設網域的 sitemap 一直被 GSC 顯示無法讀取，問題可能不在 sitemap 本身。頁面不多時，直接提交首頁通常更實際。" />
+  <meta property="og:description" content="GitHub Pages 預設網域的 sitemap 在 GSC 顯示無法讀取或 URL_FETCH_STATUS_MISC_ERROR 時，問題可能不在 sitemap 本身。" />
   <meta property="og:url" content="https://rainsilent.github.io/articles/github-pages-sitemap-gsc.html" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/31679797?v=4" />
   <meta property="article:published_time" content="2026-06-05" />
@@ -18,7 +18,7 @@
   <meta itemprop="headline" content="GitHub Pages 的 sitemap 一直被 Google Search Console 顯示無法讀取？先不用改了，問題不在你身上" />
   <meta itemprop="author" content="Sirius Chen" />
   <meta itemprop="datePublished" content="2026-06-05" />
-  <meta itemprop="description" content="GitHub Pages 預設網域上的 sitemap 一直被 Google Search Console 顯示無法讀取時，先不要一直改 sitemap。" />
+  <meta itemprop="description" content="GitHub Pages 預設網域的 sitemap 在 GSC 顯示無法讀取或 URL_FETCH_STATUS_MISC_ERROR 時，問題可能不在 sitemap 本身。" />
   <title>GitHub Pages 的 sitemap 一直被 Google Search Console 顯示無法讀取？先不用改了，問題不在你身上 | Sirius Chen</title>
   <link rel="canonical" href="https://rainsilent.github.io/articles/github-pages-sitemap-gsc.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +38,8 @@
       <article class="article-body" itemprop="articleBody">
         <p>如果你的網站放在 GitHub Pages 預設網域，也就是 <code>username.github.io</code>，然後 Google Search Console 一直顯示 sitemap「無法讀取」，這件事很可能不是你的 sitemap 寫錯。</p>
 
+        <h2>你可能已經確認過的事</h2>
+
         <p>你可能已經確認過：</p>
 
         <ul>
@@ -46,6 +48,8 @@
           <li>sitemap 用驗證工具檢查正常</li>
           <li>甚至已經用 AI 找過問題，但還是一直無法讓 GSC 檢查通過</li>
         </ul>
+
+        <h2>根本原因可能不是你的 sitemap</h2>
 
         <p>那問題可能就在這裡：不是你的檔案有問題，而是 Google 讀 GitHub Pages 預設網域上的 sitemap 時，本來就可能會卡住。</p>
 
@@ -57,6 +61,8 @@
           <li>丟到 Bing Webmaster Tools，可以正常讀</li>
           <li>GitHub Pages 綁上 custom domain 後，再送 Google，也可以正常讀</li>
         </ul>
+
+        <h2>哪些方法通常不用一直試</h2>
 
         <p>所以不用一直改 <code>.nojekyll</code>、<code>robots.txt</code>、sitemap 檔名，或一直重送測試檔。這些方法通常不是解這個問題的。</p>
 
