@@ -6,6 +6,12 @@ Base URL: https://rainsilent.github.io/
 
 ## Articles
 
+- GitHub Pages 的 sitemap 一直被 Google Search Console 顯示無法讀取？先不用改了，問題不在你身上
+  URL: https://rainsilent.github.io/articles/github-pages-sitemap-gsc.html
+  Date: 2026-06-05
+  Topic: GitHub Pages, sitemap, Google Search Console, SEO, Googlebot, URL_FETCH_STATUS_MISC_ERROR
+  Summary: A practical note explaining that when a GitHub Pages default domain sitemap keeps showing as unreadable in Google Search Console, including possible URL_FETCH_STATUS_MISC_ERROR behavior, the issue may not be the sitemap file itself. For small personal sites, submitting the homepage through URL Inspection may be more practical than repeatedly changing sitemap files.
+
 - Submitt PMP Retire 申請PMP退休
   URL: https://rainsilent.github.io/articles/pmp-retire.html
   Date: 2026-03-16
