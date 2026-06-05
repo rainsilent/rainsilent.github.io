@@ -260,7 +260,23 @@ body {
   word-break: break-word;
 }
 
-.article-body blockquote {
+.article-body code,
+.post code,
+.bio code {
+  padding: 0.12em 0.36em;
+  border: 1px solid rgba(70, 97, 124, 0.18);
+  border-radius: 6px;
+  background: #eef0f2;
+  color: #25384a;
+  font-family: Inter, Arial, "Noto Sans TC", sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0;
+  word-break: break-word;
+}
+
+.article-body blockquote,
+.article-body .highlight-block {
   margin: 0 0 36px;
   padding: 24px 28px;
   background: var(--surface-low);
@@ -270,6 +286,15 @@ body {
   font-family: Inter, Arial, "Noto Sans TC", sans-serif;
   font-size: 16px;
   line-height: 1.75;
+}
+
+.article-body .highlight-block {
+  color: var(--text);
+}
+
+.article-body .highlight-block p,
+p.highlight-block {
+  margin-bottom: 28px;
 }
 
 .article-body figure {
@@ -356,18 +381,4 @@ body {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.6;
-}
-
-@media (max-width: 900px) {
-  :root { --page-pad: 20px; }
-  .header { padding: 24px var(--page-pad); }
-  .home-layout { grid-template-columns: 1fr; padding: 24px var(--page-pad) 64px; }
-  .post h1 { font-size: 28px; }
-  .profile-card { position: static; }
-  .article-page { display: block; padding: 24px var(--page-pad) 72px; }
-  .article-title { font-size: 32px; }
-  .article-body { font-size: 18px; }
-  .aside { display: none; }
-  .author-inner { flex-direction: column; text-align: center; }
-  .footer-inner { padding: 24px var(--page-pad); flex-direction: column; }
 }
