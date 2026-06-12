@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Sirius Chen article preview">
+  <rect width="1200" height="630" fill="#f9f9f9"/>
+  <rect x="72" y="72" width="1056" height="486" rx="32" fill="#f3f3f3"/>
+  <text x="120" y="198" fill="#46617c" font-family="Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="5">SIRIUS CHEN</text>
+  <text x="120" y="292" fill="#0b0c0c" font-family="Georgia, serif" font-size="64" font-weight="700">PM Notes</text>
+  <text x="120" y="374" fill="#0b0c0c" font-family="Georgia, serif" font-size="64" font-weight="700">UX Notes</text>
+  <text x="120" y="456" fill="#0b0c0c" font-family="Georgia, serif" font-size="64" font-weight="700">Tech Writing</text>
+  <text x="120" y="514" fill="#444748" font-family="Arial, sans-serif" font-size="24">rainsilent.github.io</text>
+</svg>
