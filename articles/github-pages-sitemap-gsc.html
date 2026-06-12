@@ -21,6 +21,9 @@
   <meta itemprop="description" content="GitHub Pages 預設網域的 sitemap 在 GSC 顯示無法讀取或 URL_FETCH_STATUS_MISC_ERROR 時，問題可能不在 sitemap 本身。" />
   <title>GitHub Pages 的 sitemap 一直被 Google Search Console 顯示無法讀取？先不用改了，問題不在你身上 | Sirius Chen</title>
   <link rel="canonical" href="https://rainsilent.github.io/articles/github-pages-sitemap-gsc.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet" />
@@ -28,33 +31,7 @@
 </head>
 <body id="top">
   <header class="header"><a class="brand" href="/">Sirius Chen</a></header>
-
-  <main class="article-page">
-    <div>
-      <a class="back-link" href="/">← Back to Writing</a>
-      <div class="meta"><span itemprop="articleSection">SEO</span><span>·</span><time datetime="2026-06-05" itemprop="datePublished">Jun 5, 2026</time></div>
-      <h1 class="article-title" itemprop="headline">GitHub Pages 的 sitemap 一直被 Google Search Console 顯示「無法讀取」？先不用改了，問題不在你身上</h1>
-      <article class="article-body" itemprop="articleBody">
-        <p>如果你的網站放在 GitHub Pages 預設網域，也就是 <code>username.github.io</code>，然後 Google Search Console 一直顯示 sitemap「無法讀取」，這件事很可能不是你的 sitemap 寫錯。</p>
-        <p>你可能已經確認過：</p>
-        <ul><li><code>sitemap.xml</code> 格式正確</li><li><code>robots.txt</code> 沒有擋到</li><li>sitemap 用驗證工具檢查正常</li><li>甚至已經用 AI 找過問題，但還是一直無法讓 GSC 檢查通過</li></ul>
-        <p>那問題可能就在這裡：不是你的檔案有問題，而是 Google 讀 GitHub Pages 預設網域上的 sitemap 時，本來就可能會卡住。</p>
-        <p>目前比較像是 Googlebot 在讀取 <code>github.io</code> 上的 sitemap 時會失敗，錯誤可能會是 <code>URL_FETCH_STATUS_MISC_ERROR</code>。這個狀況從 2025 年開始就有人在 GitHub 社群回報，到 2026 年還沒有穩定的官方修正。</p>
-        <p>比較能證明問題不在 sitemap 本身的是，同一份 sitemap：</p>
-        <ul><li>丟到 Bing Webmaster Tools，可以正常讀</li><li>GitHub Pages 綁上 custom domain 後，再送 Google，也可以正常讀</li></ul>
-        <p>所以不用一直改 <code>.nojekyll</code>、<code>robots.txt</code>、sitemap 檔名，或一直重送測試檔。這些方法通常不是解這個問題的。</p>
-        <h2>那可以怎麼做咧？</h2>
-        <p>第一種，就是直接用 Google Search Console 的「網址審查」送首頁。</p>
-        <p>如果網站頁面不多，這其實最省事。Google 只要爬到首頁，就會順著首頁上的連結去找其他文章。之後新增文章，再單獨送那篇文章的網址就好。</p>
-        <p>第二種，是綁 custom domain，或乾脆換 hosting。</p>
-        <p>綁自訂網域後，再重新在 GSC 建立資源並提交 sitemap，目前看起來是比較能根治的方式。Netlify、Vercel、Cloudflare Pages 這類服務，也有使用者實測 sitemap 可以被 Google 正常讀取。</p>
-        <p><strong>但如果你跟我一樣很懶，不想買網域、不想搬站、不想重設部署，也不想再跟 GSC 的 sitemap 狀態耗下去，那最實際的做法就是：直接去提交首頁。</strong></p>
-        <p>sitemap 讀不到不代表網站不能被 Google 找到。只要首頁能被索引，文章連結也放在頁面上，Google 還是可以順著首頁把其他內容找出來。對頁面數量不多的個人站來說，這通常已經夠用了。</p>
-      </article>
-      <section class="author-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><div class="author-inner"><img src="https://avatars.githubusercontent.com/u/31679797?v=4" alt="Sirius Chen" itemprop="image" /><div><h2 itemprop="name">Sirius Chen</h2><div class="role" itemprop="jobTitle">Product Manager</div><p itemprop="description">在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、工作流程與產品思維。</p></div></div></section>
-    </div>
-    <aside class="aside"><div class="aside-block"><section class="topics"><h3>Curated Topics</h3><div class="topic-list"><span>UX</span><span>PM</span><span>Tech Writing</span><span>Storage</span></div></section><section class="recent"><h3>Recent Articles</h3><a href="/articles/github-pages-sitemap-gsc.html">GitHub Pages 的 sitemap 一直被 Google Search Console 顯示「無法讀取」？</a><a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a><a href="/articles/outlook-category-search.html">被消失的分類搜尋功能：新版 Outlook 怎麼找回標記Category 郵件？</a><a href="/articles/pm-basic-mindset.html">剛入門軟體業的 PM 可具備的基礎心法</a></section></div></aside>
-  </main>
+  <main class="article-page"><div><a class="back-link" href="/">← Back to Writing</a><div class="meta"><span itemprop="articleSection">SEO</span><span>·</span><time datetime="2026-06-05" itemprop="datePublished">Jun 5, 2026</time></div><h1 class="article-title" itemprop="headline">GitHub Pages 的 sitemap 一直被 Google Search Console 顯示「無法讀取」？先不用改了，問題不在你身上</h1><article class="article-body" itemprop="articleBody"><p>如果你的網站放在 GitHub Pages 預設網域，也就是 <code>username.github.io</code>，然後 Google Search Console 一直顯示 sitemap「無法讀取」，這件事很可能不是你的 sitemap 寫錯。</p><p>你可能已經確認過：</p><ul><li><code>sitemap.xml</code> 格式正確</li><li><code>robots.txt</code> 沒有擋到</li><li>sitemap 用驗證工具檢查正常</li><li>甚至已經用 AI 找過問題，但還是一直無法讓 GSC 檢查通過</li></ul><p>那問題可能就在這裡：不是你的檔案有問題，而是 Google 讀 GitHub Pages 預設網域上的 sitemap 時，本來就可能會卡住。</p><p>目前比較像是 Googlebot 在讀取 <code>github.io</code> 上的 sitemap 時會失敗，錯誤可能會是 <code>URL_FETCH_STATUS_MISC_ERROR</code>。這個狀況從 2025 年開始就有人在 GitHub 社群回報，到 2026 年還沒有穩定的官方修正。</p><p>比較能證明問題不在 sitemap 本身的是，同一份 sitemap：</p><ul><li>丟到 Bing Webmaster Tools，可以正常讀</li><li>GitHub Pages 綁上 custom domain 後，再送 Google，也可以正常讀</li></ul><p>所以不用一直改 <code>.nojekyll</code>、<code>robots.txt</code>、sitemap 檔名，或一直重送測試檔。這些方法通常不是解這個問題的。</p><h2>那可以怎麼做咧？</h2><p>第一種，就是直接用 Google Search Console 的「網址審查」送首頁。</p><p>如果網站頁面不多，這其實最省事。Google 只要爬到首頁，就會順著首頁上的連結去找其他文章。之後新增文章，再單獨送那篇文章的網址就好。</p><p>第二種，是綁 custom domain，或乾脆換 hosting。</p><p>綁自訂網域後，再重新在 GSC 建立資源並提交 sitemap，目前看起來是比較能根治的方式。Netlify、Vercel、Cloudflare Pages 這類服務，也有使用者實測 sitemap 可以被 Google 正常讀取。</p><p><strong>但如果你跟我一樣很懶，不想買網域、不想搬站、不想重設部署，也不想再跟 GSC 的 sitemap 狀態耗下去，那最實際的做法就是：直接去提交首頁。</strong></p><p>sitemap 讀不到不代表網站不能被 Google 找到。只要首頁能被索引，文章連結也放在頁面上，Google 還是可以順著首頁把其他內容找出來。對頁面數量不多的個人站來說，這通常已經夠用了。</p></article><section class="author-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><div class="author-inner"><img src="https://avatars.githubusercontent.com/u/31679797?v=4" alt="Sirius Chen" itemprop="image" /><div><h2 itemprop="name">Sirius Chen</h2><div class="role" itemprop="jobTitle">Product Manager</div><p itemprop="description">在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、工作流程與產品思維。</p></div></div></section></div><aside class="aside"><div class="aside-block"><section class="topics"><h3>Curated Topics</h3><div class="topic-list"><span>UX</span><span>PM</span><span>Tech Writing</span><span>Storage</span></div></section><section class="recent"><h3>Recent Articles</h3><a href="/articles/github-pages-sitemap-gsc.html">GitHub Pages 的 sitemap 一直被 Google Search Console 顯示「無法讀取」？</a><a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a><a href="/articles/outlook-category-search.html">被消失的分類搜尋功能：新版 Outlook 怎麼找回標記Category 郵件？</a><a href="/articles/pm-basic-mindset.html">剛入門軟體業的 PM 可具備的基礎心法</a></section></div></aside></main>
   <a class="back-to-top" href="#top" aria-label="Back to top">⌃</a>
   <footer class="footer"><div class="footer-inner"><span>Sirius Chen</span><span>© 2026. Built for notes, systems, and practical writing.</span></div></footer>
 </body>
