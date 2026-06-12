@@ -326,14 +326,10 @@ p.highlight-block {
 }
 
 .back-to-top {
-  position: fixed;
-  right: 32px;
-  bottom: 32px;
-  z-index: 20;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--secondary);
@@ -371,6 +367,10 @@ p.highlight-block {
 }
 
 .recent a:hover { color: var(--secondary); }
+
+.recent .back-to-top {
+  margin-top: 8px;
+}
 
 .author-card {
   margin-top: 64px;
@@ -415,8 +415,6 @@ p.highlight-block {
 
 @media (max-width: 720px) {
   .back-to-top {
-    right: 20px;
-    bottom: 20px;
     width: 44px;
     height: 44px;
     font-size: 22px;
