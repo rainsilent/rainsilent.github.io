@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" itemscope itemtype="https://schema.org/Article">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://avatars.githubusercontent.com https://miro.medium.com https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="Codex Windows 版本大量使用後變慢、送出新對話卡住、舊對話載入很慢時，可以先檢查 .codex 裡的 logs、archived_sessions 與 plugin 暫存。" />
+  <meta name="author" content="Sirius Chen" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="Sirius Chen" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Codex Windows 版本用一陣子後很 Lag，還會卡住 | Sirius Chen" />
+  <meta property="og:description" content="Codex Windows 版大量使用後變慢、對話送不出去時，我先從 .codex 裡的 logs、archived_sessions 和 plugin 暫存做排查。" />
+  <meta property="og:url" content="https://rainsilent.github.io/articles/codex-windows-lag-or-freeze.html" />
+  <meta property="og:image" content="https://rainsilent.github.io/assets/og-default.svg" />
+  <meta property="og:image:secure_url" content="https://rainsilent.github.io/assets/og-default.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Codex Windows 版本用一陣子後很 Lag，還會卡住" />
+  <meta property="article:published_time" content="2026-06-16" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Codex Windows 版本用一陣子後很 Lag，還會卡住 | Sirius Chen" />
+  <meta name="twitter:description" content="Codex Windows 版大量使用後變慢、對話送不出去時，我先從 .codex 裡的 logs、archived_sessions 和 plugin 暫存做排查。" />
+  <meta name="twitter:image" content="https://rainsilent.github.io/assets/og-default.svg" />
+  <meta itemprop="headline" content="Codex Windows 版本用一陣子後很 Lag，還會卡住" />
+  <meta itemprop="author" content="Sirius Chen" />
+  <meta itemprop="datePublished" content="2026-06-16" />
+  <meta itemprop="description" content="Codex Windows 版本大量使用後變慢、送出新對話卡住、舊對話載入很慢時，可以先檢查 .codex 裡的 logs、archived_sessions 與 plugin 暫存。" />
+  <title>Codex Windows 版本用一陣子後很 Lag，還會卡住 | Sirius Chen</title>
+  <link rel="canonical" href="https://rainsilent.github.io/articles/codex-windows-lag-or-freeze.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5" />
+  <link rel="shortcut icon" href="/favicon.ico?v=5" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNK5EKH9TE"></script>
+  <script src="/assets/analytics.js" defer></script>
+</head>
+<body id="top">
+  <header class="header"><a class="brand" href="/">Sirius Chen</a></header>
+  <main class="article-page"><div><a class="back-link" href="/">← Back to Writing</a><div class="meta"><span itemprop="articleSection">AI Tools</span><span>·</span><time datetime="2026-06-16" itemprop="datePublished">Jun 16, 2026</time></div><h1 class="article-title" itemprop="headline">Codex Windows 版本用一陣子後很 Lag，還會卡住</h1><article class="article-body" itemprop="articleBody"><p>在超級大量使用 Codex Windows 版本一段時間後，某一個當下它就突然變得很慢。</p><p>一開始只是新對話送不出去。點送出後一直卡在轉圈圈，甚至重新再開一個新對話也是一樣卡著。後來連載入舊的對話都變得超慢，整個 App 看起來不是普通 lag，而是卡在某個地方過不去。</p><p>我一開始也先嘗試最直覺的處理方式：重開整個 App、重新安裝、把不要的對話都 Archive。結果都沒有太大幫助，新對話一樣卡得很嚴重。</p><p>原本我還用 ChatGPT 幫我找網路上的經驗，但那些建議對我的狀況幫助不大。甚至 AI 還叫我把整個 <code>.codex</code> 目錄改掉，結果就是我的對話都消失，一切都要重來。</p><p>所以後來我乾脆進到 <code>.codex</code> 目錄裡，用 Codex CLI 請它直接檢查本機狀態。下面是它協助我做的一些處理方式。雖然最後 CPU 還是衝得有點高，但至少對話可以送出去了。</p><p>這篇不是官方教學，只是我的使用 Codex 幫我處理問題的紀錄，僅供參考，因為這問題應該還是得靠 OpenAI 來優化這個應用了吧...</p><p>ChatGPT 一開始還往程式權限問題的方向判斷，但我後來覺得不太像。真的卡權限的話，通常會看到 approval、allow、permission 這類很明確的提示。可是我這次是連輸入送出都還沒真正跑起來，就已經卡在轉圈圈了。</p><h2>可以先檢查哪裡</h2><p>Codex App 在 Windows 上會使用這個資料夾：</p><pre><code>%USERPROFILE%\.codex</code></pre><p>裡面會放一些本機狀態、歷史紀錄、暫存資料、設定檔等等。換句話說，Codex App 很多「看起來像是雲端服務慢」的狀況，其實也可能跟本機這包資料有關。</p><p>我後來主要看的是這幾個地方：</p><ul><li><code>logs_2.sqlite*</code></li><li><code>sessions</code></li><li><code>archived_sessions</code></li><li><code>.tmp\plugins</code></li><li>plugin 設定</li></ul><p>這些不一定每個人都會出問題，但如果 App 已經卡到不能正常使用，至少可以先從這幾個方向下手，不要一開始就整包 <code>.codex</code> 改名或刪掉。</p><h2>第一個可以調整的地方：log 資料</h2><p>第一個先看 <code>logs_2.sqlite</code>。如果這個檔案變得很大，App 啟動或載入時有可能會被拖慢。</p><p>我的做法不是直接刪除，而是先關掉 Codex App，然後把這些檔案移到備份資料夾：</p><pre><code>logs_2.sqlite
+logs_2.sqlite-wal
+logs_2.sqlite-shm</code></pre><p>重開後，Codex App 會自己重新建立新的 log 檔。</p><p>這一步對我有一點幫助，但不是完整解法。也就是說，log 太大可能是原因之一，但不一定是唯一原因。</p><h2>第二個可以調整的地方：archived conversations</h2><p>接著我看了 <code>archived_sessions</code>。這裡放的是已封存的對話紀錄。</p><p>如果 archived conversations 很多，App 在載入或整理歷史時可能會變慢。我的做法一樣不是刪除，而是先把整個 <code>archived_sessions</code> 移到備份資料夾，再讓 Codex App 建一個新的空資料夾。</p><p>這一步對我比較有感。移走後，App 的反應有比較正常一點。</p><p>代價是 App 裡暫時看不到原本封存的對話。不過資料還在備份裡，需要時可以再搬回來。而且反正都 Archive 了...就真的有需要再說吧!</p><h2>第三個可以調整的地方：plugin 暫存和不常用 plugin</h2><p><code>.tmp\plugins</code> 比較像 plugin marketplace 或 catalog 的暫存資料。清掉後 App 會再重建，所以這個相對沒有那麼可怕。</p><p>這一步對我來說不是最大改善來源，比較像是順手清一下，幫忙排除是不是暫存資料在拖慢。</p><p>另外，如果平常不常用文件、試算表、簡報、PDF 這類 plugin，也可以先暫時停用，看看啟動和使用時會不會好一點。</p><p>這不是說 plugin 一定有問題，而是當 App 已經卡住時，先減少它需要載入的東西，會比較容易判斷問題到底卡在哪裡。</p><h2>不建議一開始就刪的東西</h2><p><code>.codex</code> 裡有些檔案看起來也很可疑，我本來看到也覺得亂七八糟很阿雜，但 Codex 說不要亂刪，例如：</p><pre><code>auth.json
+config.toml
+state_5.sqlite
+memories_1.sqlite
+goals_1.sqlite
+plugins
+skills</code></pre><p>這些可能和登入、設定、記憶、狀態或工具有關。刪了不一定會變快，反而可能讓 App 狀態更亂，到時候就又要重來一次。</p><p>總之呢，希望 OpenAI 快點處理一下囉，這優化也太差了吧!!!</p></article><section class="author-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><div class="author-inner"><img src="https://avatars.githubusercontent.com/u/31679797?v=4" alt="Sirius Chen" itemprop="image" /><div><h2 itemprop="name">Sirius Chen</h2><div class="role" itemprop="jobTitle">Product Manager</div><p itemprop="description">在軟體圈遊走 10+ 年的 PM。喜歡探討技術、內部系統 UX、工作流程與產品思維。</p></div></div></section></div><aside class="aside"><div class="aside-block"><section class="topics"><h3>Curated Topics</h3><div class="topic-list"><span>AI Tools</span><span>UX</span><span>PM</span><span>Tech Writing</span></div></section><section class="recent"><h3>Recent Articles</h3><a href="/articles/codex-windows-lag-or-freeze.html">Codex Windows 版本用一陣子後很 Lag，還會卡住</a><a href="/articles/github-pages-sitemap-gsc.html">GitHub Pages 的 sitemap 一直被 Google Search Console 顯示「無法讀取」？</a><a href="/articles/pmp-retire.html">Submitt PMP Retire 申請PMP退休</a><a href="/articles/outlook-category-search.html">被消失的分類搜尋功能：新版 Outlook 怎麼找回標記Category 郵件？</a></section></div></aside></main>
+  <a class="back-to-top" href="#top" aria-label="Back to top">⌃</a>
+  <footer class="footer"><div class="footer-inner"><span>Sirius Chen</span><span>© 2026. Built for notes, systems, and practical writing.</span></div></footer>
+</body>
+</html>
