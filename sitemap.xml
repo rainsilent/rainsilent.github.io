@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rainsilent.github.io/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://rainsilent.github.io/articles/codex-windows-lag-or-freeze.html</loc>
+    <lastmod>2026-06-16</lastmod>
   </url>
   <url>
     <loc>https://rainsilent.github.io/articles/github-pages-sitemap-gsc.html</loc>
