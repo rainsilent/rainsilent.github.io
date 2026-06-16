@@ -247,6 +247,35 @@ body {
 
 .article-body p { margin: 0 0 28px; }
 
+.article-body ul {
+  margin: 0 0 28px 1.2em;
+  padding: 0;
+}
+
+.article-body li {
+  margin-bottom: 8px;
+}
+
+.article-body pre {
+  margin: 0 0 28px;
+  padding: 18px 20px;
+  overflow-x: auto;
+  border: 1px solid rgba(70, 97, 124, 0.18);
+  border-radius: 12px;
+  background: #eef0f2;
+  color: #25384a;
+  font-family: Inter, Arial, "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.article-body pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+}
+
 .article-body h2 {
   margin: 44px 0 16px;
   font-family: Inter, Arial, "Noto Sans TC", sans-serif;
