@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="960" viewBox="0 0 1320 960">
+<style>
+  svg { background:#f9f9f9; font-family: Inter, Arial, "Noto Sans TC", sans-serif; }
+  .title { font-size:28px; font-weight:700; fill:#111; }
+  .subtitle { font-size:14px; fill:#444; }
+  .section { font-size:16px; font-weight:700; fill:#111; letter-spacing:.04em; }
+  .box-title { font-size:17px; font-weight:700; fill:#111; }
+  .box-text { font-size:13px; fill:#333; }
+  .small { font-size:12px; fill:#444; }
+  .arrow { stroke:#46617c; stroke-width:2.2; marker-end:url(#arrowhead); }
+  .arrow-label { font-size:12px; fill:#46617c; font-weight:600; }
+  .lane { fill:#f1f3f4; stroke:#c4c7c7; stroke-width:1; }
+  .security-lane { fill:#f4f5f5; stroke:#c4c7c7; stroke-width:1; }
+  .divider { stroke:#c4c7c7; stroke-width:1.5; }
+  .note { fill:#eef0f2; stroke:#c4c7c7; stroke-width:1; }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#46617c"/>
+  </marker>
+</defs>
+
+<text x="60" y="58" class="title">Agentic 開發團隊架構圖</text>
+<text x="60" y="86" class="subtitle">主流程只畫開發交付；Security 是旁路回饋，不塞進主流程。</text>
+
+<rect x="60" y="120" width="540" height="250" rx="20" class="lane"/>
+<text x="90" y="158" class="section">Shared Agents：可重用角色能力</text>
+<rect x="90" y="185" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="108" y="214" class="box-title">PM Bot</text>
+<text x="108" y="241" class="box-text">SPEC、Story、Gate</text>
+<rect x="340" y="185" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="358" y="214" class="box-title">RD Bot</text>
+<text x="358" y="241" class="box-text">Code、EVT、PR</text>
+<rect x="90" y="280" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="108" y="309" class="box-title">QA Bot</text>
+<text x="108" y="336" class="box-text">Review、Test、Merge Gate</text>
+<rect x="340" y="280" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="358" y="309" class="box-title">Security</text>
+<text x="358" y="336" class="box-text">SAST、CVE、Threat Model</text>
+
+<rect x="720" y="120" width="540" height="250" rx="20" class="lane"/>
+<text x="750" y="158" class="section">Project Workspace：專案狀態與輸出</text>
+<rect x="750" y="185" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="768" y="214" class="box-title">Memory</text>
+<text x="768" y="241" class="box-text">anti-patterns、regressions</text>
+<rect x="1000" y="185" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="1018" y="214" class="box-title">Outputs</text>
+<text x="1018" y="241" class="box-text">SPEC、EVT、QA Report</text>
+<rect x="750" y="280" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="768" y="309" class="box-title">Repo / PR</text>
+<text x="768" y="336" class="box-text">feature branch、PR evidence</text>
+<rect x="1000" y="280" width="220" height="72" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="1018" y="309" class="box-title">Heptabase</text>
+<text x="1018" y="336" class="box-text">提醒、決策、日記紀錄</text>
+
+<line x1="600" y1="245" x2="720" y2="245" class="arrow"/>
+<text x="660.0" y="233" text-anchor="middle" class="arrow-label">套用到專案</text>
+
+<line x1="60" y1="420" x2="1260" y2="420" class="divider"/>
+<text x="60" y="465" class="section">主要開發流程</text>
+
+<rect x="60" y="510" width="190" height="96" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="78" y="539" class="box-title">1. PM Bot</text>
+<text x="78" y="566" class="box-text">寫規格 / Story</text>
+<text x="78" y="588" class="box-text">需要決策時通知</text>
+<rect x="290" y="510" width="190" height="96" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="308" y="539" class="box-title">2. RD Bot</text>
+<text x="308" y="566" class="box-text">寫 code + EVT</text>
+<text x="308" y="588" class="box-text">push branch / 開 PR</text>
+<rect x="520" y="510" width="190" height="96" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="538" y="539" class="box-title">3. Codex</text>
+<text x="538" y="566" class="box-text">PR 靜態 review</text>
+<text x="538" y="588" class="box-text">留下建議</text>
+<rect x="750" y="510" width="190" height="96" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="768" y="539" class="box-title">4. RD Bot</text>
+<text x="768" y="566" class="box-text">讀 comment</text>
+<text x="768" y="588" class="box-text">修正同一 branch</text>
+<rect x="980" y="510" width="220" height="96" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="998" y="539" class="box-title">5. QA Bot</text>
+<text x="998" y="566" class="box-text">看 evidence + security report</text>
+<text x="998" y="588" class="box-text">測試 / 通過才 merge</text>
+
+<line x1="250" y1="558" x2="290" y2="558" class="arrow"/>
+<line x1="480" y1="558" x2="520" y2="558" class="arrow"/>
+<line x1="710" y1="558" x2="750" y2="558" class="arrow"/>
+<line x1="940" y1="558" x2="980" y2="558" class="arrow"/>
+
+<rect x="160" y="690" width="1000" height="160" rx="20" class="security-lane"/>
+<text x="190" y="728" class="section">Security 旁路回饋</text>
+<rect x="210" y="755" width="230" height="78" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="228" y="784" class="box-title">Security Expert</text>
+<text x="228" y="811" class="box-text">產出 findings / report</text>
+<rect x="545" y="755" width="230" height="78" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="563" y="784" class="box-title">QA Security Check</text>
+<text x="563" y="811" class="box-text">依 report 驗證</text>
+<rect x="880" y="755" width="230" height="78" rx="14" fill="#ffffff" stroke="#1a1c1c" stroke-width="1.5"/>
+<text x="898" y="784" class="box-title">RD Fix Backlog</text>
+<text x="898" y="811" class="box-text">Fail 才丟回 RD 修正</text>
+
+<line x1="440" y1="794" x2="545" y2="794" class="arrow"/>
+<text x="492.5" y="782" text-anchor="middle" class="arrow-label">report</text>
+<line x1="775" y1="794" x2="880" y2="794" class="arrow"/>
+<text x="827.5" y="782" text-anchor="middle" class="arrow-label">fail only</text>
+
+<rect x="60" y="890" width="1200" height="36" rx="12" class="note"/>
+<text x="80" y="913" class="small">安全線不取代主流程；Security 產出結論，QA 納入驗證與 merge gate，失敗才回 RD 修正。</text>
+</svg>
