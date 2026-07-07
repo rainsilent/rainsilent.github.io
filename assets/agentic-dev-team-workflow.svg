@@ -1,43 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330">
 <style>
   svg { background:#f9f9f9; font-family: Inter, Arial, "Noto Sans TC", sans-serif; }
-  .title { font-size:24px; font-weight:700; fill:#111; }
-  .subtitle { font-size:13px; fill:#444; }
-  .section { font-size:15px; font-weight:700; fill:#111; letter-spacing:.03em; }
-  .box-title { font-size:15px; font-weight:700; fill:#111; }
-  .box-text { font-size:12px; fill:#333; }
-  .small { font-size:12px; fill:#444; }
-  .arrow { stroke:#46617c; stroke-width:2.2; marker-end:url(#arrowhead); }
-  .arrow-label { font-size:12px; fill:#46617c; font-weight:600; }
+  .title { font-size:22px; font-weight:700; fill:#111; }
+  .subtitle { font-size:12px; fill:#444; }
+  .section { font-size:14px; font-weight:700; fill:#111; letter-spacing:.02em; }
+  .box-title { font-size:14px; font-weight:700; fill:#111; }
+  .box-text { font-size:11px; fill:#333; }
+  .arrow { stroke:#46617c; stroke-width:2; marker-end:url(#arrowhead); }
+  .arrow-label { font-size:11px; fill:#46617c; font-weight:600; }
   .security-lane { fill:#f4f5f5; stroke:#c4c7c7; stroke-width:1; }
 </style>
 <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#46617c"/></marker></defs>
-<text x="40" y="42" class="title">Agentic 開發流程圖</text>
-<text x="40" y="68" class="subtitle">主流程維持單向推進；Security 是旁路回饋，由 QA 納入驗證與 merge gate。</text>
-<rect x="40" y="100" width="150" height="74" rx="12" fill="#fff" stroke="#1a1c1c" stroke-width="1.4"/>
-<text x="55" y="128" class="box-title">1. PM Bot</text><text x="55" y="151" class="box-text">寫規格 / Story</text><text x="55" y="168" class="box-text">需要決策時通知</text>
-<line x1="190" y1="137" x2="225" y2="137" class="arrow"/>
-<rect x="225" y="100" width="150" height="74" rx="12" fill="#fff" stroke="#1a1c1c" stroke-width="1.4"/>
-<text x="240" y="128" class="box-title">2. RD Bot</text><text x="240" y="151" class="box-text">寫 code + EVT</text><text x="240" y="168" class="box-text">push branch / 開 PR</text>
-<line x1="375" y1="137" x2="410" y2="137" class="arrow"/>
-<rect x="410" y="100" width="150" height="74" rx="12" fill="#fff" stroke="#1a1c1c" stroke-width="1.4"/>
-<text x="425" y="128" class="box-title">3. Codex</text><text x="425" y="151" class="box-text">PR 靜態 review</text><text x="425" y="168" class="box-text">留下建議</text>
-<line x1="560" y1="137" x2="595" y2="137" class="arrow"/>
-<rect x="595" y="100" width="150" height="74" rx="12" fill="#fff" stroke="#1a1c1c" stroke-width="1.4"/>
-<text x="610" y="128" class="box-title">4. RD Bot</text><text x="610" y="151" class="box-text">讀 comment</text><text x="610" y="168" class="box-text">修正同一 branch</text>
-<line x1="745" y1="137" x2="780" y2="137" class="arrow"/>
-<rect x="780" y="100" width="150" height="74" rx="12" fill="#fff" stroke="#1a1c1c" stroke-width="1.4"/>
-<text x="795" y="128" class="box-title">5. QA Bot</text><text x="795" y="151" class="box-text">看 evidence + report</text><text x="795" y="168" class="box-text">測試 / 通過才 merge</text>
-<rect x="120" y="220" width="720" height="92" rx="16" class="security-lane"/>
-<text x="145" y="248" class="section">Security 旁路回饋</text>
-<rect x="175" y="263" width="170" height="38" rx="9" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
-<text x="190" y="287" class="box-title">Security Expert</text>
-<line x1="345" y1="282" x2="430" y2="282" class="arrow"/>
-<text x="388" y="270" text-anchor="middle" class="arrow-label">report</text>
-<rect x="430" y="263" width="190" height="38" rx="9" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
-<text x="445" y="287" class="box-title">QA Security Check</text>
-<line x1="620" y1="282" x2="705" y2="282" class="arrow"/>
-<text x="663" y="270" text-anchor="middle" class="arrow-label">fail only</text>
-<rect x="705" y="263" width="170" height="38" rx="9" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
-<text x="720" y="287" class="box-title">RD Fix Backlog</text>
+<text x="24" y="36" class="title">Agentic 開發流程圖</text>
+<text x="24" y="60" class="subtitle">主流程單向推進；Security 旁路回饋由 QA 納入驗證與 merge gate。</text>
+<rect x="24" y="92" width="126" height="74" rx="10" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
+<text x="38" y="119" class="box-title">1. PM Bot</text><text x="38" y="141" class="box-text">寫規格 / Story</text><text x="38" y="158" class="box-text">需要決策時通知</text>
+<line x1="150" y1="129" x2="174" y2="129" class="arrow"/>
+<rect x="174" y="92" width="126" height="74" rx="10" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
+<text x="188" y="119" class="box-title">2. RD Bot</text><text x="188" y="141" class="box-text">寫 code + EVT</text><text x="188" y="158" class="box-text">push branch / PR</text>
+<line x1="300" y1="129" x2="324" y2="129" class="arrow"/>
+<rect x="324" y="92" width="126" height="74" rx="10" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
+<text x="338" y="119" class="box-title">3. Codex</text><text x="338" y="141" class="box-text">PR 靜態 review</text><text x="338" y="158" class="box-text">留下建議</text>
+<line x1="450" y1="129" x2="474" y2="129" class="arrow"/>
+<rect x="474" y="92" width="126" height="74" rx="10" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
+<text x="488" y="119" class="box-title">4. RD Bot</text><text x="488" y="141" class="box-text">讀 comment</text><text x="488" y="158" class="box-text">修正 branch</text>
+<line x1="600" y1="129" x2="624" y2="129" class="arrow"/>
+<rect x="624" y="92" width="112" height="74" rx="10" fill="#fff" stroke="#1a1c1c" stroke-width="1.3"/>
+<text x="638" y="119" class="box-title">5. QA Bot</text><text x="638" y="141" class="box-text">看 evidence</text><text x="638" y="158" class="box-text">通過才 merge</text>
+<rect x="86" y="212" width="588" height="86" rx="16" class="security-lane"/>
+<text x="110" y="240" class="section">Security 旁路回饋</text>
+<rect x="140" y="254" width="135" height="32" rx="8" fill="#fff" stroke="#1a1c1c" stroke-width="1.2"/>
+<text x="154" y="276" class="box-title">Security Expert</text>
+<line x1="275" y1="270" x2="350" y2="270" class="arrow"/>
+<text x="313" y="258" text-anchor="middle" class="arrow-label">report</text>
+<rect x="350" y="254" width="150" height="32" rx="8" fill="#fff" stroke="#1a1c1c" stroke-width="1.2"/>
+<text x="364" y="276" class="box-title">QA Security Check</text>
+<line x1="500" y1="270" x2="575" y2="270" class="arrow"/>
+<text x="538" y="258" text-anchor="middle" class="arrow-label">fail only</text>
+<rect x="575" y="254" width="72" height="32" rx="8" fill="#fff" stroke="#1a1c1c" stroke-width="1.2"/>
+<text x="589" y="276" class="box-title">RD Fix</text>
 </svg>
